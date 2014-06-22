@@ -1,0 +1,123 @@
+//
+// Todo list
+// --------------------------------------------------
+
+.logcat {  
+  color: mix(@brand-primary, @inverse, 66%);
+  margin-bottom: 20px;
+  border-radius: @border-radius-large;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border-radius: 0 0 @border-radius-large @border-radius-large;
+  }
+  li {
+    /* background: @brand-primary ~"url(../images/todo/todo.png) 92% center no-repeat"; */
+    background-size: 20px 20px;
+	background: mix(@brand-primary, @inverse, 8%);
+    padding: 4px 0px 4px 15px;
+	margin: 0px;
+    cursor: pointer;
+    font-size: ceil(@component-font-size-base * 0.933); // ~14px
+    line-height: 1.214;
+    position: relative;
+    .transition(.25s);
+    
+    &:first-child {
+      margin-top: 0;
+    }  
+    &:last-child {
+      border-radius: 0 0 @border-radius-large @border-radius-large;
+      padding-bottom: 21px;
+    }
+    &.logcat-done {
+      /* background: transparent ~"url(../images/todo/done.png) 92% center no-repeat"; */
+      background-size: 20px 20px;
+      color: @brand-secondary;
+
+      .todo-name {
+        color: @brand-secondary;
+      }  
+    }  
+  }      
+}
+
+.logcat-search {
+  position: relative;
+  background: @brand-secondary;
+  background-size: 16px 16px;
+  border-radius: @border-radius-large @border-radius-large 0 0;
+  color: @brand-primary;
+  padding: 19px 25px 20px;
+  
+  &:before {
+    position: absolute;
+    font-family: 'Flat-UI-Icons';
+    content: "\e01c";
+    font-size: 16px;
+    line-height: 17px;
+    display: inline-block;
+    top: 50%;
+    left: 92%;
+    margin: -0.5em 0 0 -1em;
+  }
+}
+
+input.logcat-search-field {
+  background: none;
+  width: 100%;
+  border: none;
+  color: @brand-primary;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 23px;
+  padding: 20px;
+  text-indent: 0;
+  .box-shadow(none);
+  .placeholder(@brand-primary);
+}
+
+.logcat-icon {
+  float: left;
+  font-size: 24px;
+  padding: 11px 22px 0 0;
+}
+
+.logcat-time {
+  float: left;
+  font-size: 17px;
+  padding: 0 22px 0 0;
+}
+
+.logcat-tag {
+  float: left;
+  font-size: 17px;
+  padding: 0 22px 0 0;
+}
+
+.logcat-content {
+  overflow: hidden;
+  font-size: 17px;
+}
+
+.logcat-name {
+  color: @inverse;
+  font-size: 17px;
+  margin: 1px 0 3px;
+}  
+
+// Retina Support
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
+  .todo {
+    li {
+      background-image: ~"url(../images/todo/todo-2x.png)";
+      
+      &.todo-done {
+        background-image: ~"url(../images/todo/done-2x.png)";
+      }  
+    }    
+  }  
+}

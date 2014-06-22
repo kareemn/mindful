@@ -1,0 +1,36 @@
+application: mindful-api
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /(.*\.(html))
+  static_files: static/\1
+  upload: static/(.*\.(html))
+
+- url: /images
+  static_dir: static/images
+
+- url: /bootstrap
+  static_dir: static/bootstrap
+
+- url: /css
+  static_dir: static/css
+
+- url: /fonts
+  static_dir: static/fonts
+
+- url: /js
+  static_dir: static/js
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
