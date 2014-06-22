@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
+import jinja2
 import json
 import webapp2
 from google.appengine.api import channel
@@ -26,19 +28,30 @@ class Log(db.Model):
     message = db.StringProperty(required=True)
     
 class MainHandler(webapp2.RequestHandler):
+
     def get(self):
-        self.response.write('Hello mind!')
+        token = channel.create_channel('mindful')
+        template_values = {'token': token,
+                           'app_name': 'yoyoyo'}
+        template = jinja_environment.get_template('templates/logcat.html')
+        self.response.out.write(template.render(template_values))
+
     def post(self):
-		body = self.request.body
-		logs = json.loads(body)
-		for l in logs:
-			timestamp = j_obj['ts']
-			level = j_obj['lvl']
-			tag = j_obj['tag']
-			message = j_obj['msg']
-			log = Log(timestamp=timestamp, level=level, tag=tag, message=message)
-			log.put()
-			channel.send_message('kareem', body)
+        body = self.request.body
+        logs = json.loads(body)
+        for l in logs:
+            channel.send_message('mindful', json.dumps(l))
+            """
+            timestamp = l['ts']
+            level = l['lvl']
+            tag = l['tag']
+            message = l['msg']
+            log = Log(timestamp=timestamp, level=level, tag=tag, message=message)
+            log.put()
+            """
+
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)

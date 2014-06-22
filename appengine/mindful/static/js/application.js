@@ -51,7 +51,7 @@ var addLog = function(time, tag, content) {
 		});
 	});
 
-/*
+    /*
     setTimeout("addLog('01-05 13:04:12.803', D/dalvikvm', 'D/dalvikvm( 871): GC_CONCURRENT freed 100K, 6% free 10224K/10823K, paused 1ms+6ms');", 1000);
     setTimeout("addLog('01-05 13:04:13.804','D/dalvikvm', 'D/dalvikvm( 871): GC_CONCURRENT freed 500K, 6% free 10224K/10823K, paused 1ms+6ms');", 2000);
     setTimeout("addLog('01-05 13:04:14.805','D/dalvikvm', 'D/dalvikvm( 871): GC_CONCURRENT freed 100K, 6% free 10224K/10823K, paused 1ms+6ms');", 3000);
@@ -115,7 +115,8 @@ var addLog = function(time, tag, content) {
     setTimeout("addLog('01-05 13:04:51.804','D/dalvikvm', 'D/dalvikvm( 871): GC_CONCURRENT freed !00K, 6% free 10224K/10823K, paused 1ms+6ms');", 15000);
     setTimeout("addLog('01-05 13:04:65.804','D/dalvikvm', 'D/dalvikvm( 871): GC_CONCURRENT freed !00K, 6% free 10224K/10823K, paused 1ms+6ms');", 19000);
     setTimeout("addLog('01-05 13:04:67.804','D/dalvikvm', 'D/dalvikvm( 871): GC_CONCURRENT freed 500K, 6% free 10224K/10823K, paused 1ms+6ms');", 20000);
-*/
+    */
+
     // Custom Selects
     $("select[name='huge']").selectpicker({style: 'btn-hg btn-primary', menuStyle: 'dropdown-inverse'});
     $("select[name='herolist']").selectpicker({style: 'btn-primary', menuStyle: 'dropdown-inverse'});
