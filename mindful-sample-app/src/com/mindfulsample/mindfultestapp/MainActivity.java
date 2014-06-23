@@ -1,5 +1,7 @@
 package com.mindfulsample.mindfultestapp;
 
+import com.mindful.LogSink;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -25,6 +27,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Log.v(TAG, "button 1 clicked");
+				LogSink.getInstance().uploadLogs(MainActivity.this);
 			}
 			
 		});
@@ -34,6 +37,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Log.v(TAG, "button 2 clicked");
+				LogSink.getInstance().uploadLogs(MainActivity.this);
 			}
 			
 		});

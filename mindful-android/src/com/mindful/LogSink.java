@@ -30,7 +30,7 @@ public class LogSink {
 
 	public synchronized ArrayList<LogEvent> getPendingLogs() {
 		ArrayList<LogEvent> events = mLogs;
-		mLogs = null;
+		mLogs = new ArrayList<LogEvent>();
 		return events;
 	}
 

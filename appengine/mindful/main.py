@@ -39,7 +39,7 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         body = self.request.body
         logs = json.loads(body)
-        for l in logs:
+        for l in logs['events']:
             channel.send_message('mindful', json.dumps(l))
             """
             timestamp = l['ts']

@@ -27,16 +27,18 @@ public class LogUploaderService extends IntentService {
 		
 		    HttpPost httpPost = new HttpPost(MINDFUL_LOGS_ENDPOINT);
 		    httpPost.setEntity(postEntity);
-		    httpPost.setHeaders(HttpUtil.getAndroidHeaders(LogUploaderService.this));
+		    httpPost.setHeaders(HttpUtil.getAndroidHeaders(this));
 		
 		    httpClient.execute(httpPost);
         } catch (Exception ex) {
+		android.util.Log.v("LogUploaderService", "trying to upload to server " + ex);
                 throw new RuntimeException(ex);
         }
     }
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
+		android.util.Log.v("LogUploaderService", "onHandleIntent");
 		flushLogs(LogSink.getInstance().getPendingLogs());
 	}
 }
